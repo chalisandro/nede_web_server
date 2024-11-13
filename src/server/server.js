@@ -1,13 +1,8 @@
-const express = require('express')
-const path = require('path')
+import express from 'express'
 
-// const startServer = ((options) => {
-//     const {port,public_path = 'public'} = options
-//     console.log(port);
-//     console.log(public_path);
-// })
+import path from 'path'
 
-const startServer = ({port, public_path = 'public'}) => {
+export const startServer = ({port, public_path = 'public'}) => {
     const app = express()
 
     //Para usar middlewares se usa USE
@@ -20,8 +15,4 @@ const startServer = ({port, public_path = 'public'}) => {
     app.listen(port,() => {
         console.log(`Escuchando en el puerto ${port}`);
     })
-}
-
-module.exports = {
-    startServer
 }

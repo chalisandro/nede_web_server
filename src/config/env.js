@@ -1,11 +1,9 @@
-require('dotenv').config() // carga variables de entorno del archivo .env
-const { get } = require('env-var') // manejar ñas variables de una forma robusta y valida
+import env from 'dotenv'
+import envvar from 'env-var' // manejar las variables de una forma robusta y valida
+env.config()
 
-const envs = { //asignamos los calores port y path
-    PORT: get('PORT').required().asPortNumber(),
-    PUBLIC_PATH: get('PUBLIC_PATH').default('public').asString()
+export const envs = { //asignamos los calores port y path
+    PORT: envvar.get('PORT').required().asPortNumber(),
+    PUBLIC_PATH: envvar.get('PUBLIC_PATH').default('public').asString()
 }
 
-module.exports = {
-    envs
-}
